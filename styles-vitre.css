@@ -1,0 +1,6 @@
+/* styles.css */
+
+/* Loading animation for maps */
+iframe {
+    transition: opacity 0.3s ease;
+}
