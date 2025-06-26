@@ -6,6 +6,37 @@
     <title>LM Intelligence - Créez des sites web vitrines</title>
     <meta name="description" content="Créez des sites web vitrines et des pages de destination flexibles avec des options de conception et de personnalisation étendues.">
     <link rel="icon" href="favicon_io/favicon.ico" type="image/x-icon">
+
+    <!-- Language Redirection Script -->
+    <script>
+        (function() {
+            // Get the user's browser language, e.g., 'en-US', 'it', 'fr-FR'
+            const userLang = navigator.language || navigator.userLanguage;
+            // Get the primary language code, e.g., 'en', 'it', 'fr'
+            const lang = userLang.split('-')[0];
+
+            // Define the languages you support and the corresponding folder names
+            const supportedLangs = {
+                'it': '/it/',
+                'en': '/en/',
+                'es': '/es/',
+                'de': '/de/', // 'ge' is not a standard code, using 'de' for German
+                'ja': '/ja/',
+                'zh': '/zh-CN/',
+                'ru': '/ru/',
+                'ar': '/ar/'
+            };
+
+            // The language of the current page is French ('fr'). 
+            // We don't need to redirect if the user's browser is already in French.
+            if (lang !== 'fr' && supportedLangs[lang]) {
+                // If the detected language is supported and is not French, redirect.
+                window.location.href = supportedLangs[lang];
+            }
+        })();
+    </script>
+    <!-- End Language Redirection Script -->
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
