@@ -1,0 +1,6 @@
+# Ce fichier indique aux robots ce qu'ils peuvent ou ne peuvent pas crawler sur le site.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://lmintelligence.fr/sitemap.xml
