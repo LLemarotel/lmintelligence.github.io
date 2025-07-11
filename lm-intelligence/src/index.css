@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply antialiased;
+  }
+}
+
+@layer components {
+  .cta-button {
+    @apply bg-blue-600 text-white px-6 py-3 rounded-full font-bold 
+           transition-all duration-300 transform hover:-translate-y-1 
+           hover:shadow-xl;
+  }
+  
+  .cta-button-hero {
+    @apply border-2 border-blue-600 text-blue-600 px-10 py-4 rounded-full 
+           font-normal uppercase tracking-wider transition-all duration-300
+           hover:bg-blue-600 hover:text-white;
+  }
+  
+  .navbar-translucent {
+    @apply bg-white/60 backdrop-blur-md;
+  }
+  
+  .step-indicator {
+    @apply transition-all duration-300;
+  }
+  
+  .step-indicator.active {
+    @apply bg-blue-600 text-white border-blue-600;
+  }
+  
+  .project-option input:checked + div {
+    @apply border-blue-600 bg-blue-100 ring-2 ring-blue-600;
+  }
+
+  /* Infinite Scroll Carousel Styles */
+  .carousel-container {
+    @apply w-full overflow-hidden relative;
+  }
+
+  .carousel-track {
+    @apply flex;
+    width: 150%; /* Adjusted for 15% items */
+    animation: scroll-left 40s linear infinite;
+  }
+
+  /* Pause animation on hover */
+  .carousel-container:hover .carousel-track {
+    animation-play-state: paused;
+  }
+
+  .carousel-item {
+    @apply flex-shrink-0 transition-transform duration-300 ease-in-out;
+    width: 15%; /* Better size - shows about 6-7 items */
+    height: auto;
+    padding: 0 0.4rem; /* Adjusted padding */
+  }
+
+  /* 3:4 aspect ratio for images (vertical/portrait) with rounded corners */
+  .carousel-item .relative {
+    aspect-ratio: 3 / 4;
+    @apply overflow-hidden rounded-xl; /* Rounded corners */
+  }
+
+  /* Enhanced caption styling */
+  .carousel-caption {
+    @apply p-4 bg-gradient-to-t from-gray-50 to-white;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  .carousel-title {
+    @apply font-bold text-lg mb-2 text-gray-800;
+    line-height: 1.3;
+  }
+
+  .carousel-description {
+    @apply text-gray-600 text-sm leading-relaxed;
+    font-weight: 400;
+  }
+
+  .carousel-item:hover {
+    @apply -translate-y-1;
+  }
+}
+
+@layer utilities {
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Keyframe animations (must be outside @layer) */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-75%); /* Move 5 items × 15% = 75% */
+  }
+}
